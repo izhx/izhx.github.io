@@ -1,49 +1,154 @@
 <!DOCTYPE html>
-<html style="height: 100%;">
-
+<html>
 <head>
-    <meta charset="utf-8">
-    <title>Hsin's resume</title>
-    <style>
-        html {
-            overflow: -moz-hidden-unscrollable;
-            height: 100%;
-        }
-        body::-webkit-scrollbar {
-            display: none;
-        }
-        body {
-            -ms-overflow-style: none;
-            height: 100%;
-            width: calc(100vw + 18px);
-            overflow: auto;
-        }
-        html,
-        body {
-            margin: 0px;
-            padding: 0px;
-            border: 0px;
-            bottom: 0px;
-        }
-    </style>
+<title id="title">Xin Zhang</title>
+
+<style type="text/css">
+
+.uptime {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: small;
+}
+body {
+  background-color: #FFFFFF;
+}
+
+</style>
+
+
 </head>
+<body>
 
-<body style="height: 100%;">
+<h1>
+    <span id="name"></span>
+    <button id="lang-btn" align="right"  type="button" onclick="langBtn()"></button>
+</h1>
 
-    <div id="resume" style="height: 100%;">It appears you don't have Adobe Reader or PDF support in this web
-        browser. <a href="https://izhx.github.io/resume.pdf">Click here to download the PDF</a>
-    </div>
+<p>hsinz (at) foxmail.com, <a id="resume" href="/resume.html"></a>.</p>
+
+<p id="biography" ></p>
 
 
-    <!-- insert just before the closing body tag </body>  -->
-    <script src="https://cdn.bootcss.com/pdfobject/2.1.1/pdfobject.min.js"></script>
-    <script>
-        //Be sure your document contains an element with the CSS selector "#resume"
-        var options = {
-            pdfOpenParams: { scrollbar: '0', toolbar: '0', statusbar: '0', messages: '0', navpanes: '0' }
-        };
-        PDFObject.embed("https://izhx.github.io/resume.pdf", "#resume", options);
-    </script>
+<!-- ======================================== -->
+
+<h2 id="interest"></h2>
+<ul>
+    <li id="int-ml"></li>
+    <li id="int-nlp"></li>
+</ul>
+
+
+<!-- ======================================== -->
+
+<h2 id="education"></h2>
+<ul>
+    <li>
+        2020.09 -- 2023.01 (<span id="expect"></span>),
+        <span id="master-info"></span>,
+        <span id="master-tutor"></span>:
+        <a id="master-tutor-name" href="https://zhangmeishan.github.io/"></a>
+    </li>
+
+    <li>
+        2016.09 -- 2020.06,
+        <span id="bachlor-info"></span>
+    </li>
+</ul>
+
+
+<!-- ======================================== -->
+
+<h2 id="publication"></h2>
+<ul>
+    <h3>No</h3>
+    <!-- <li></li> -->
+</ul>
+
+
+<!-- ======================================== -->
+
+<h2 id="code"></h2>
+<ul>
+    <li></li>
+</ul>
+
+
+<!-- ======================================== -->
+
+<!-- <h2>奖项</h2>
+<ul>
+    <li>2019.11, 国家奖学金</li>
+    <li>2019.11, 中南大学优秀学生标兵 (30/32000+)</li>
+</ul> -->
+
+
+<!-- ======================================== -->
+
+<hr>
+<p align="center" class="uptime">
+  Last update：
+  <SCRIPT LANGUAGE="javaScript">
+    document.writeln(document.lastModified);
+  </SCRIPT>
+</p>
+
+
+<script language="javascript">
+    var lang = navigator.language || navigator.userLanguage;  //获取浏览器的语言
+    lang = lang.substr(0, 2) == "zh";
+    setLang(lang);
+
+
+function langBtn() {
+    lang = !lang;
+    setLang(lang);
+}
+
+function setText(itemId, text) {
+    document.getElementById(itemId).innerHTML = text;
+}
+
+function setLang(isZh) {
+    if (isZh){
+        setText('title', "张鑫 (Xin Zhang)");
+        setText('name', "张鑫 (Xin Zhang)");
+        setText('resume', "简历");
+        setText('lang-btn', "English");
+        setText('biography', "天津大学，硕士在读。");
+        setText('interest', "研究兴趣");
+        setText('int-ml', "机器学习");
+        setText('int-nlp', "NLP相关应用：情感分析、意见挖掘");
+        setText('education', "教育经历");
+        setText('expect', "预计");
+        setText('master-info', '天津大学, 电子信息, 硕士在读');
+        setText('master-tutor', '导师');
+        setText('master-tutor-name', '张梅山');
+        setText('bachlor-info', '中南大学, 智能科学与技术, 学士学位');
+        setText('publication', '论文发表');
+        setText('code', '代码');
+    } else {
+        setText('title', "Xin Zhang (张鑫)");
+        setText('name', "Xin Zhang (张鑫)");
+        setText('resume', "resume");
+        setText('lang-btn', "Chinese");
+        setText('biography', "Master Student, Tianjin University.");
+        setText('interest', "Research Interest");
+        setText('int-ml', "Machine Learning");
+        setText('int-nlp', "NLP Applications: Sentiment Analysis, Opinion Mining");
+        setText('education', "Eduction Experience");
+        setText('expect', "Expected");
+        setText('master-info', 'Master Student of Electronic Information, Tianjin University');
+        setText('master-tutor', 'Supervisor');
+        setText('master-tutor-name', 'Meishan Zhang');
+        setText('bachlor-info', 'Bachelor of Intelligence Science and Technology, Central South University');
+        setText('publication', 'Publications');
+        setText('code', 'Codes');
+    }
+}
+
+</script>
+
+
 </body>
-
 </html>
